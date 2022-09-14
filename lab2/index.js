@@ -11,7 +11,7 @@ app.post('/mirror', function (req, res, next) {
 })
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('<h1>Web - Aula Git</h1>')
 })
 
 app.listen(port, () => {
