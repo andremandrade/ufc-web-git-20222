@@ -6,6 +6,11 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+app.get('/querytojson', (req, res) => {
+  console.log(req.query);
+  res.send(req.query);
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
