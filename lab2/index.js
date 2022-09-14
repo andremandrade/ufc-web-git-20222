@@ -14,6 +14,11 @@ app.get('/', (req, res) => {
   res.send('<h1>Web - Aula Git</h1>')
 })
 
+app.get('/querytojson', (req, res) => {
+  console.log(req.query);
+  res.send(req.query);
+})
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
