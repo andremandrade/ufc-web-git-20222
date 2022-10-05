@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Loja</title>
+  </head>
+  <body>
+    <h2>Produto - Listar</h2>
+    
+    <hr/>
+    <ul>
+      <% for (let i = 0; i < produtos.length; i++) { 
+        let p = produtos[i];%>
+        <li>Id: <%= p.id %>  - Nome: <%= p.nome %> - Preço: <%= p.preco %>   </li>
+      <% } %> 
+    </ul>
+    
+    <ul>
+      <li><a href="/home">Home</a></li>  
+    </ul>
+  </body>
+</html>
