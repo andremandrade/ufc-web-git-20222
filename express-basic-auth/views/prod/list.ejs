@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Express - Basic Auth</title>
+        <style>
+            table, tr, td {
+                border: black solid 1px;
+                padding: 3px;
+
+            }
+        </style>
+    </head>
+    <body>
+
+        <h1>Express - Basic Auth</h1>
+        User: <%= loggedUser.name %>
+        <h2>Product List</h2>
+        <table>
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Name</td>
+                    <td>Price</td>
+                </tr>
+            </thead>
+            <tbody>
+                <% for (let i = 0; i < products.length; i++) {%>
+                   <tr>
+                        <td>
+                            <%= products[i]._id %> 
+                        </td>
+                        <td>
+                            <%= products[i].name %> 
+                        </td>
+                        <td>
+                            <%= products[i].price %> 
+                        </td>
+                   </tr> 
+                <% } %> 
+            </tbody>
+        </table>
+    </body>
+</html>
