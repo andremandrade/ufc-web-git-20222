@@ -1,0 +1,55 @@
+<html>
+<head>
+
+</head>
+<body>
+    <h1>REST + Ajax Example</h1>
+    <div>
+        Id: <input type="number" id="prodId"> <br/>
+        Nome: <input type="text" id="prodNome"> <br/>
+        Preco: <input type="number" id="prodPreco"> <br/>
+        <input type="button" value="Save" onclick="save()">
+    </div>
+    <div id="produtos"></div>
+    <script>
+        function save(){
+            let id = document.getElementById("prodId").value;
+            let nome = document.getElementById("prodNome").value;
+            let preco = document.getElementById("prodPreco").value;
+            newprod = {id: parseInt(id), nome: nome, preco: parseFloat(preco)};
+           
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", '/api/produto', true);
+            xhr.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+
+            xhr.onload = function() {
+			    if (this.readyState == 4 && this.status == 200) {
+                    loadList()
+                }
+            }
+
+            xhr.send(JSON.stringify(newprod));
+        }
+
+        function loadList(){
+			var xhttp = new XMLHttpRequest();
+			xhttp.open("GET", "/api/produto", true);
+			xhttp.onload = function() {
+			    if (this.readyState == 4 && this.status == 200) {
+					produtos = JSON.parse(xhttp.responseText);
+			    	produtosDiv = document.getElementById("produtos");
+                    lista = '<ul>';
+                    for (const i in produtos){
+                        let p = produtos[i];
+                        lista += '<li>' + p.id + ' - ' + p.nome + ' - ' + p.preco + '</li>';
+                    } 
+                    lista += '</ul>';
+                    produtosDiv.innerHTML = lista;
+                }
+			};
+			xhttp.send();
+		}
+		loadList();
+    </script>
+</body>
+</html>
