@@ -1,0 +1,8 @@
+<h2>Login</h2>
+<a style="color: red;">{{loginFailMessage}}</a>
+<br/>
+Login: <input [(ngModel)]="username" type="text" />
+<br/><br/>
+Password: <input [(ngModel)]="password" type="password"/>
+<br/>
+<button (click)="login()">Login</button>
